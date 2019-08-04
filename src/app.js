@@ -1,6 +1,7 @@
 const express = require('express')
-const app = express()
 const cors = require('cors')
+const app = express()
+
 
 //Settings
 const port = process.env.PORT || 4000
@@ -11,7 +12,8 @@ app.use(express.json()) //servidor en formato json
 app.use(cors())
 
 //Routes
-app.get('/', (req, res) => res.send('User routes'))
+app.use('/api/users', require('./routes/users'))
+app.use('/api/posts', require('./routes/posts'))
 
 
 module.exports = app;
