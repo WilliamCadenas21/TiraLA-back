@@ -8,7 +8,7 @@ const postSchema = new Schema({
     },
     author: String
 },{
-    timestamp: true
+    timestamps: true 
 })
 
 module.exports = model('Post', postSchema)

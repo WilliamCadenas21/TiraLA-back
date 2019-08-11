@@ -9,7 +9,6 @@ router.route('/')
 router.route('/:id')
     .get()
     .put()
-    //.delete()    
-
+    .delete(deleteUser)    
 
 module.exports = router

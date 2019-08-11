@@ -25,7 +25,6 @@ postCtrl.createPost = async (req, res) => {
     } catch (e) {
         res.json({status: 500, message: e })
     }
-
 }
 
 postCtrl.getPost = async (req, res) => {
@@ -54,7 +53,7 @@ postCtrl.updatePost = async (req, res) => {
 postCtrl.deletPost = async (req, res) => {
     try {
         await Post.findOneAndDelete(req.params.id)
-        res.json({ status: 200,message: 'Post seleted' })
+        res.json({ status: 200,message: 'Post Deleted' })
     } catch (e) {
         res.json({status: 500, message: e })
     }

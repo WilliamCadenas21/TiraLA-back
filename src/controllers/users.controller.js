@@ -1,9 +1,37 @@
 userCtrl = {}
 
-userCtrl.getUsers = (res, resp) => res.json({message: 'all users'})
+const User = require('../models/User')
 
-userCtrl.createUser = (res, resp) => res.json({message: 'create one user'})
+userCtrl.getUsers = async (req, res) => {
+    try {
+        const users = await User.find()
+        res.json({status: 200, users})
+    } catch (e) {
+        res.json({status: 500, message: e})
+    }
+}
 
-userCtrl.deleteUser = (res, resp) => res.json({message: 'delete users'})
+userCtrl.createUser = async (req, res) => {
+    try {
+        const { username } = req.body
+        const newUser = new User({
+            username
+        })
+        await newUser.save()
+        res.json({status: 200, message: 'user created' })
+    } catch (e) {
+        res.json({status: 500, message: e })
+    }
+}
+
+userCtrl.deleteUser = async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id)
+        res.json({status: 200, message: 'user Deleted' })
+    } catch (e) {
+        res.json({status: 500, message: e })
+    }
+}
 
 module.exports = userCtrl
+
