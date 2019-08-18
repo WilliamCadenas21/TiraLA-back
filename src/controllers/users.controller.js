@@ -12,6 +12,7 @@ userCtrl.getUsers = async (req, res) => {
 }
 
 userCtrl.createUser = async (req, res) => {
+    console.log(req.body)
     try {
         const { username } = req.body
         const newUser = new User({
