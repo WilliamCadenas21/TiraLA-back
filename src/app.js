@@ -2,10 +2,11 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const morgan = require('morgan')
+const config = require('../config/config')
 
 
 //Settings
-const port = process.env.PORT || 4000
+const port = config.port
 app.set('port', port)
 
 //Middleware
