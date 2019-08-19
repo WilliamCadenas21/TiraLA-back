@@ -17,6 +17,8 @@ app.use(cors())
 //Routes
 app.use('/api/users', require('./routes/users'))
 app.use('/api/posts', require('./routes/posts'))
-
+app.use('/',(req, res) => {
+	res.send('WELCOME TO MY APPI V1.0')
+})
 
 module.exports = app;
