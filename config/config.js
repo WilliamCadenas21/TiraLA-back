@@ -1,18 +1,19 @@
 require('dotenv').config()
-var env = process.env.NODE_ENV || 'production';
+const env = process.env.NODE_ENV || 'production';
 
-var config = {
+const config = {
     development: {
         env,
-        port: process.env.PORT || 3000,
-        db: process.env.DATABASE || 'mongodb://localhost/articulosem-development'
+        port: process.env.PORT || 4000,
+        db: 'mongodb://localhost/testdb'
     },
 
     production: {
         env,
-        port: process.env.PORT || 3000,
-        db: process.env.DATABASE || 'mongodb://will:GJk457@ds259347.mlab.com:59347/tirala'
+        port: process.env.PORT || 4000,
+        db: process.env.DATABASE,
+        db2: process.env.DATABASE2 
     }
-};
+}
 
-module.exports = config[env];
+module.exports = config[env]
