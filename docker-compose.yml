@@ -1,15 +1,15 @@
 version: "2"
 services:
-  nodeapp:
-    container_name: nodeapp
+  nodeapp-tirala:
+    container_name: nodeapp-tirala 
     restart: always
     build: .
     ports:
-      - "4000:4000"
+      - "80:80"
     depends_on:
-      - mongo-server      
-  mongo-server:
-    container_name: mongo-server
+      - mongo-server-tirala      
+  mongo-server-tirala:
+    container_name: mongo-server-tirala
     image: mongo
     volumes:
       - ./data:/data/db
